@@ -51,7 +51,8 @@
                     x:Name="stackLayout"
                     Spacing="15"
                     Padding="20, 15, 20, 100">
-                    <Label FontSize="40" Text="Polkadot Roots" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+                    <Label FontSize="40" Text="Polkadot Roots" HorizontalTextAlignment="Center" FontAttributes="Bold"
+                           FontFamily="UnboundedBold"/>
 
                     <components:ClaimNftButtonView />
 
