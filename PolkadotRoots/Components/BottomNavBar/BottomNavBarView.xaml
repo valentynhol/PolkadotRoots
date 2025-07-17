@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PolkadotRoots.Components.BottomNavBar"
+             x:Class="PolkadotRoots.Components.BottomNavBar.BottomNavBarView"
+             AbsoluteLayout.LayoutBounds="0.5, 1, 1, 90"
+             AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional">
+
+    <local:PageBottomBarView>
+        <local:PageBottomBarView.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </local:PageBottomBarView.ColumnDefinitions>
+
+        <local:NavBarButtonView
+            Grid.Column="0"
+            Title="Assets"
+            IconUnselected="assets.png"
+            IconSelected="assets_active.png"
+            IsSelected="{Binding AssetsIsSelected}"
+            Command="{Binding SelectAssetsCommand}">
+        </local:NavBarButtonView>
+        <local:NavBarButtonView
+            Grid.Column="1"
+            Title="NFTs"
+            IconUnselected="nft.png"
+            IconSelected="nft_active.png"
+            IsSelected="{Binding NftsIsSelected}"
+            Command="{Binding SelectNftsCommand}">
+        </local:NavBarButtonView>
+        <local:NavBarButtonView
+            Grid.Column="2"
+            Title="Play Wud"
+            IconUnselected="play.png"
+            IconSelected="play_active.png"
+            IsSelected="{Binding WudIsSelected}"
+            Command="{Binding SelectWudCommand}">
+        </local:NavBarButtonView>
+    </local:PageBottomBarView>
+</ContentView>

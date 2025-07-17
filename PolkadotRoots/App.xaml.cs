@@ -1,6 +1,7 @@
 ﻿using PlutoFramework.Components.Account;
 using PlutoFramework.Components.Password;
 using PlutoFramework.Model;
+using PolkadotRoots.Components.BottomNavBar;
 
 namespace PolkadotRoots
 {
@@ -25,6 +26,10 @@ namespace PolkadotRoots
             noAccountViewModel.AfterCreateAccountNavigation = NewMainPageNavigationAsync;
 
             InitializeComponent();
+
+
+            DependencyService.Register<BottomNavBarViewModel>();
+
 
             if (!KeysModel.HasSubstrateKey())
             {

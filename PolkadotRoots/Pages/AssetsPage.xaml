@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PolkadotRoots.Pages.MainPage"
-             Title="MainPage"
+             x:Class="PolkadotRoots.Pages.AssetsPage"
+             Title="AssetsPage"
              xmlns:txanalyzer="clr-namespace:PlutoFramework.Components.TransactionAnalyzer;assembly=PlutoFramework"
              xmlns:networkselect="clr-namespace:PlutoFramework.Components.NetworkSelect;assembly=PlutoFramework"
              xmlns:transferview="clr-namespace:PlutoFramework.Components.TransferView;assembly=PlutoFramework"
@@ -28,7 +28,6 @@
              xmlns:nft="clr-namespace:PlutoFramework.Components.Nft;assembly=PlutoFramework"
              xmlns:vtokens="clr-namespace:PlutoFramework.Components.VTokens;assembly=PlutoFramework"
              xmlns:components="clr-namespace:PolkadotRoots.Components"
-             xmlns:bohemia="clr-namespace:PlutoFramework.Components.Bohemia;assembly=PlutoFramework"
              xmlns:bottomnavbar="clr-namespace:PolkadotRoots.Components.BottomNavBar"
              BackgroundColor="{AppThemeBinding Light=White, Dark=#0a0a0a}"
              Shell.PresentationMode="ModalNotAnimated"
@@ -53,10 +52,11 @@
                     Padding="20, 15, 20, 100">
                     <Label FontSize="40" Text="Polkadot Roots" HorizontalTextAlignment="Center" FontAttributes="Bold" />
 
-                    <components:ClaimNftButtonView />
+                    <balance:UsdBalanceView />
 
-                    <Label FontSize="25" Text="Your NFTs" HorizontalTextAlignment="Center" />
-                    <bohemia:BohemiaNftOwnedListView />
+                    <buttons:ReceiveAndTransferView />
+
+                    <address:PolkadotAddressView />
 
                 </VerticalStackLayout>
             </ScrollView>
