@@ -10,4 +10,12 @@
         ContentTemplate="{DataTemplate pages:MainPage}"
         Route="MainPage" />
 
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:AssetsPage}"
+        Route="Assets" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:WudPage}"
+        Route="Wud" />
+
 </Shell>

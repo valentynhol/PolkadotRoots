@@ -19,7 +19,6 @@
                    IsTextPredictionEnabled="False"
                    Keyboard="Plain"
                    Grid.Column="0"
-                   Background="{StaticResource PrimaryDark}"
                    VerticalTextAlignment="Center"
                    VerticalOptions="Center"
                    FontSize="18"/>
