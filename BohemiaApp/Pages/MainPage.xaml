@@ -25,6 +25,9 @@
              xmlns:balance="clr-namespace:PlutoFramework.Components.Balance;assembly=PlutoFramework"
              xmlns:buttons="clr-namespace:PlutoFramework.Components.Buttons;assembly=PlutoFramework"
              xmlns:address="clr-namespace:PlutoFramework.Components.AddressView;assembly=PlutoFramework"
+             xmlns:nft="clr-namespace:PlutoFramework.Components.Nft;assembly=PlutoFramework"
+             xmlns:vtokens="clr-namespace:PlutoFramework.Components.VTokens;assembly=PlutoFramework"
+             xmlns:components="clr-namespace:BohemiaApp.Components"
              BackgroundColor="{AppThemeBinding Light=White, Dark=#0a0a0a}"
              Shell.PresentationMode="ModalNotAnimated"
              xmlns:card="clr-namespace:PlutoFramework.Components.Card;assembly=PlutoFramework"
@@ -49,8 +52,18 @@
 
                     <balance:UsdBalanceView />
 
-                    <buttons:ReceiveAndTransferView />
+                    <nft:NftsOwnedListView />
 
+                    <Grid ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <components:ClaimNftButtonView Grid.Column="0" />
+                        <components:PlayWudButtonView Grid.Column="1" />
+                    </Grid>
+                    
                     <address:PolkadotAddressView />
 
                 </VerticalStackLayout>
