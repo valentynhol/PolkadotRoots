@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:buttons="clr-namespace:PlutoFramework.Components.Buttons;assembly=PlutoFramework"
+             x:Class="PolkadotRoots.Pages.WelcomePage"
+             Title="WelcomePage">
+    <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All">
+        <VerticalStackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                             AbsoluteLayout.LayoutFlags="All"
+                             Margin="0,90,0,0">
+            <Label HorizontalOptions="Center"
+               HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Welcome"
+                              FontSize="30"
+                              FontFamily="UnboundedBold" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="to"
+                              FontSize="30"
+                              FontFamily="UnboundedBold" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Web3"
+                              FontSize="30"
+                              FontFamily="UnboundedBold" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            
+        </VerticalStackLayout>
+
+        <Image Source="polkadotroots_logo_transparent.png"
+                AbsoluteLayout.LayoutBounds="0.5, 0.5, 200, 200"
+               AbsoluteLayout.LayoutFlags="PositionProportional" />
+
+        <buttons:ElevatedButton AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
+                                AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+                                Margin="20"
+                                Text="Join"
+                                Command="{Binding JoinCommand}"/>
+    </AbsoluteLayout>
+</ContentPage>

@@ -13,7 +13,7 @@ namespace PolkadotRoots
             return Task.FromResult(0);
         }
 
-        public async Task GenerateNewAccountAsync()
+        public static async Task GenerateNewAccountAsync()
         {
             await KeysModel.GenerateNewAccountAsync();
 
@@ -33,10 +33,7 @@ namespace PolkadotRoots
 
             if (!KeysModel.HasSubstrateKey())
             {
-                MainPage = new SetupPasswordPage
-                {
-                    Navigation = GenerateNewAccountAsync
-                };
+                MainPage = new OnboardingShell();
             }
             else
             {

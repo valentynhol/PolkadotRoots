@@ -55,7 +55,6 @@
 
                     <components:ClaimNftButtonView />
 
-                    <Label FontSize="25" Text="Your NFTs" HorizontalTextAlignment="Center" />
                     <bohemia:BohemiaNftOwnedListView />
 
                 </VerticalStackLayout>

@@ -94,6 +94,12 @@
     <MauiXaml Update="Components\BottomNavBar\BottomNavBarView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
+    <MauiXaml Update="OnboardingShell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Pages\WelcomePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
     <MauiXaml Update="Pages\WudPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
