@@ -1,14 +1,7 @@
-# PlutoFrameworkAppTemplate
-App template for PlutoFramework
+# Polkadot Roots App
+App for collaborating on Polkadot events.
 
-## Setup
-
-Create a new repository which will use this repository as template.
-
-Setup git submodule. Alternatively use PlutoFramework Nuget package.
-
-```
-git submodule init
-git submodule update
-```
+## Design
+![Design](ReadmeImages/design.png)
+![Onboarding](ReadmeImages/onboarding.png)
 
