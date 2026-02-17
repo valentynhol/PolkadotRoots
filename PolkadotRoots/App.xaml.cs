@@ -1,6 +1,6 @@
 ﻿using PlutoFramework.Components.Account;
-using PlutoFramework.Components.Password;
 using PlutoFramework.Model;
+using PlutoFramework.Model.Initializers;
 using PolkadotRoots.Components.BottomNavBar;
 
 namespace PolkadotRoots
@@ -26,7 +26,11 @@ namespace PolkadotRoots
             noAccountViewModel.AfterCreateAccountNavigation = NewMainPageNavigationAsync;
 
             InitializeComponent();
-
+            
+            // Launch push notifications services
+            PushNotificationsAppInitializer.Initialize(
+                "https://plutoframeworknotificationsapitemplate.onrender.com"
+                );
 
             DependencyService.Register<BottomNavBarViewModel>();
 
