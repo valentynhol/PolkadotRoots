@@ -1,11 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <!-- Display name and App Identifier -->
-    <PropertyGroup Condition="'$(Configuration)'=='Debug'">
-        <ApplicationId>app.plutolabs.polkadotcommunity.dev</ApplicationId>
-        <ApplicationTitle>Polkadot Community Dev</ApplicationTitle>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)'=='Release'">
-        <ApplicationId>app.plutolabs.polkadotcommunity</ApplicationId>
+    <PropertyGroup>
+        <ApplicationId>app.plutolabs.community</ApplicationId>
         <ApplicationTitle>Polkadot Community</ApplicationTitle>
     </PropertyGroup>
     
@@ -34,6 +30,15 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
+    <PropertyGroup>
+        <SkipStaticLibraryValidation>true</SkipStaticLibraryValidation>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(TargetFramework)'=='net9.0-ios'">
+      <CodesignKey>Apple Development: Created via API (9FQVK4NT63)</CodesignKey>
+      <CodesignProvision>VS: app.plutolabs.community Development</CodesignProvision>
+    </PropertyGroup>
+    
     <ItemGroup>
         <GoogleServicesJson Include="Platforms\Android\google-services.json" />
     </ItemGroup>
