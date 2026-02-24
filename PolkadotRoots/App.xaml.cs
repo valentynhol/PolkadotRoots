@@ -26,11 +26,6 @@ namespace PolkadotRoots
             noAccountViewModel.AfterCreateAccountNavigation = NewMainPageNavigationAsync;
 
             InitializeComponent();
-            
-            // Launch push notifications services
-            PushNotificationsAppInitializer.Initialize(
-                "https://plutoframeworknotificationsapitemplate.onrender.com"
-                );
 
             DependencyService.Register<BottomNavBarViewModel>();
 
@@ -43,6 +38,14 @@ namespace PolkadotRoots
             {
                 MainPage = new AppShell();
             }
+        }
+        
+        protected override void OnStart()
+        {
+            // Launch push notifications services
+            PushNotificationsAppInitializer.Initialize(
+                "https://plutoframeworknotificationsapitemplate.onrender.com"
+            );
         }
     }
 }

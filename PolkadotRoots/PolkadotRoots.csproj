@@ -33,16 +33,17 @@
     <PropertyGroup>
         <SkipStaticLibraryValidation>true</SkipStaticLibraryValidation>
     </PropertyGroup>
-
+    
     <PropertyGroup Condition="'$(TargetFramework)'=='net9.0-ios'">
-      <CodesignKey>Apple Development: Created via API (9FQVK4NT63)</CodesignKey>
+      <CodesignKey>Apple Development: Created via API (BMZ9DQPVYC)</CodesignKey>
+      <ProvisioningType>automatic</ProvisioningType>
       <CodesignProvision>VS: app.plutolabs.community Development</CodesignProvision>
     </PropertyGroup>
-    
+
     <ItemGroup>
         <GoogleServicesJson Include="Platforms\Android\google-services.json" />
     </ItemGroup>
-
+    
 	<ItemGroup>
 		<!-- App Icon -->
         <MauiIcon Include="Resources\AppIcon\appicon.png">
@@ -61,6 +62,11 @@
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
+
+    <ItemGroup>
+        <BundleResource Include="GoogleService-Info.plist" />
+        <BundleResource Include="Platforms\iOS\Entitlements.plist" />
+    </ItemGroup>
 
 	<ItemGroup>
         <ProjectReference Include="..\PlutoFramework\PlutoFramework\PlutoFramework.csproj" />
