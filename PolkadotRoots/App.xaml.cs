@@ -1,5 +1,6 @@
-﻿using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.ApplicationModel;
 using PlutoFramework.Model;
+using PlutoFramework.Model.Initializers;
 using PlutoFrameworkCore;
 using PolkadotRoots.Components.BottomNavBar;
 using System.Linq;
@@ -58,6 +59,14 @@ namespace PolkadotRoots
             {
                 window.Page = page;
             }
+        }
+
+	protected override void OnStart()
+        {
+            // Launch push notifications services
+            PushNotificationsAppInitializer.Initialize(
+                "https://plutoframeworknotificationsapitemplate.onrender.com"
+            );
         }
     }
 }
