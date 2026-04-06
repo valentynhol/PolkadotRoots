@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <!-- Display name and App Identifier -->
     <PropertyGroup>
         <ApplicationId>app.plutolabs.community</ApplicationId>
@@ -6,7 +6,7 @@
     </PropertyGroup>
     
 	<PropertyGroup>
-		<TargetFrameworks>net9.0-android;net9.0-ios</TargetFrameworks>
+		<TargetFrameworks>net10.0-android;net10.0-ios26.0</TargetFrameworks>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>PolkadotRoots</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -34,16 +34,10 @@
       <SkipStaticLibraryValidation>true</SkipStaticLibraryValidation>
       <ProvisioningType>automatic</ProvisioningType>
     </PropertyGroup>
-
-    <ItemGroup>
-        <GoogleServicesJson Include="Platforms\Android\google-services.json" Condition="Exists('Platforms\Android\google-services.json')" />
-    </ItemGroup>
     
 	<ItemGroup>
 		<!-- App Icon -->
-        <MauiIcon Include="Resources\AppIcon\appicon.png">
-            <Color>#ff2670</Color>
-        </MauiIcon>
+        <MauiIcon Include="Resources\AppIcon\appicon.png" Color="#ff2670" />
         
 		<!-- Splash Screen -->
         <MauiSplashScreen Include="Resources\Splash\splash.png" Color="#ff2670" BaseSize="128,128" />
@@ -63,11 +57,16 @@
     </ItemGroup>
 
     <ItemGroup>
+        <GoogleServicesJson Include="Platforms\Android\google-services.json" Condition="Exists('Platforms\Android\google-services.json')" />
+    </ItemGroup>
+
+    <ItemGroup>
         <BundleResource Include="Platforms\iOS\Entitlements.plist" />
     </ItemGroup>
 
 	<ItemGroup>
-        <ProjectReference Include="..\PlutoFramework\PlutoFramework\PlutoFramework.csproj" />
+	  <ProjectReference Include="..\CommunityCore\CommunityCore.csproj" />
+	  <ProjectReference Include="..\PlutoFramework\PlutoFramework\PlutoFramework.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -75,9 +74,9 @@
 	</ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.81" />
-        <PackageReference Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" Include="Xamarin.AndroidX.SavedState" Version="1.3.1.1" />
-        <PackageReference Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" Include="Xamarin.AndroidX.SavedState.SavedState.Ktx" Version="1.3.1.1" />
+        <PackageReference Include="CommunityToolkit.Maui" Version="12.3.0" />
+        <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.0" />
+        <PackageReference Include="Plugin.Fingerprint" Version="3.0.0-beta.1" />
     </ItemGroup>
 
     <ItemGroup>
@@ -87,15 +86,12 @@
         <Compile Update="Components\BottomNavBar\NavBarButtonView.xaml.cs">
             <DependentUpon>NavBarButtonView.xaml</DependentUpon>
         </Compile>
-        <Compile Update="Pages\WudPage.xaml.cs">
-            <DependentUpon>WudPage.xaml</DependentUpon>
-        </Compile>
         <Compile Update="Pages\AssetsPage.xaml.cs">
             <DependentUpon>AssetsPage.xaml</DependentUpon>
         </Compile>
     </ItemGroup>
     
-    <ItemGroup>    
+    <ItemGroup>
         <MauiXaml Update="Components\BottomNavBar\PageBottomBarView.xaml">
             <Generator>MSBuild:Compile</Generator>
         </MauiXaml>
@@ -103,6 +99,12 @@
             <Generator>MSBuild:Compile</Generator>
         </MauiXaml>
         <MauiXaml Update="Components\ClaimNftButtonView.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Components\Dotbacks\DotbackItemView.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Components\Events\EventItemView.xaml">
             <Generator>MSBuild:Compile</Generator>
         </MauiXaml>
         <MauiXaml Update="Components\PlayWudButtonView.xaml">
@@ -114,10 +116,25 @@
         <MauiXaml Update="OnboardingShell.xaml">
             <Generator>MSBuild:Compile</Generator>
         </MauiXaml>
-        <MauiXaml Update="Pages\WelcomePage.xaml">
+        <MauiXaml Update="Pages\DotbackDetailsPage.xaml">
             <Generator>MSBuild:Compile</Generator>
         </MauiXaml>
-        <MauiXaml Update="Pages\WudPage.xaml">
+        <MauiXaml Update="Pages\DotbackRegistrationPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Pages\DotbacksPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Pages\EventDetailsPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Pages\EventsPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Pages\MyDotbacksPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Pages\RegisterEventPage.xaml">
             <Generator>MSBuild:Compile</Generator>
         </MauiXaml>
         <MauiXaml Update="Pages\AssetsPage.xaml">
@@ -129,15 +146,20 @@
         <MauiXaml Update="Pages\SettingsPage.xaml">
             <Generator>MSBuild:Compile</Generator>
         </MauiXaml>
+        <MauiXaml Update="Pages\WelcomePage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
     </ItemGroup>
 
     <ItemGroup>
         <None Update="Components\ClaimNftButtonView.xaml">
             <Generator>MSBuild:Compile</Generator>
         </None>
+        <None Update="Components\Dotbacks\DotbackItemView.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </None>
         <None Update="Components\PlayWudButtonView.xaml">
             <Generator>MSBuild:Compile</Generator>
         </None>
     </ItemGroup>
-    
 </Project>
