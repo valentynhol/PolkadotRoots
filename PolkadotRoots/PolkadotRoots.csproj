@@ -35,9 +35,7 @@
     </PropertyGroup>
     
     <PropertyGroup Condition="'$(TargetFramework)'=='net9.0-ios'">
-      <CodesignKey>Apple Development: Created via API (BMZ9DQPVYC)</CodesignKey>
       <ProvisioningType>automatic</ProvisioningType>
-      <CodesignProvision>VS: app.plutolabs.community Development</CodesignProvision>
     </PropertyGroup>
 
     <ItemGroup>
