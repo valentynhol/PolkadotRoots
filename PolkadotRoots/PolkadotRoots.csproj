@@ -63,8 +63,11 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
-    <ItemGroup>
+    <ItemGroup Condition="Exists('GoogleService-Info.plist')">
         <BundleResource Include="GoogleService-Info.plist" />
+    </ItemGroup>
+
+    <ItemGroup>
         <BundleResource Include="Platforms\iOS\Entitlements.plist" />
     </ItemGroup>
 
