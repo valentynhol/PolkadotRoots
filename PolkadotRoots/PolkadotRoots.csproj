@@ -29,12 +29,9 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
-
-    <PropertyGroup>
-        <SkipStaticLibraryValidation>true</SkipStaticLibraryValidation>
-    </PropertyGroup>
     
     <PropertyGroup Condition="'$(TargetFramework)'=='net9.0-ios'">
+      <SkipStaticLibraryValidation>true</SkipStaticLibraryValidation>
       <ProvisioningType>automatic</ProvisioningType>
     </PropertyGroup>
 
