@@ -1,43 +1,62 @@
-﻿using PlutoFramework.Components.Account;
-using PlutoFramework.Components.Password;
+﻿using Microsoft.Maui.ApplicationModel;
 using PlutoFramework.Model;
+using PlutoFrameworkCore;
 using PolkadotRoots.Components.BottomNavBar;
+using System.Linq;
 
 namespace PolkadotRoots
 {
     public partial class App : Application
     {
+        public App()
+        {
+            NavigationModel.NavigateAfterAccountCreation = NewMainPageNavigationAsync;
+
+            InitializeComponent();
+
+            DependencyService.Register<BottomNavBarViewModel>();
+        }
+
+        protected override Window CreateWindow(IActivationState? activationState)
+        {
+            return new Window(CreateRootPage());
+        }
+
         public static Task NewMainPageNavigationAsync()
         {
-            App.Current.MainPage = new AppShell();
-            return Task.FromResult(0);
+            return SetRootPageAsync(new AppShell());
         }
 
         public static async Task GenerateNewAccountAsync()
         {
             await KeysModel.GenerateNewAccountAsync();
-
-            App.Current.MainPage = new AppShell();
+            await SetRootPageAsync(new AppShell());
         }
 
-        public App()
+        private static Page CreateRootPage()
         {
-            var noAccountViewModel = DependencyService.Get<NoAccountPopupViewModel>();
-            noAccountViewModel.AfterCreateAccountNavigation = NewMainPageNavigationAsync;
+            return KeysModel.HasSubstrateKey()
+                ? new AppShell()
+                : new OnboardingShell();
+        }
 
-            InitializeComponent();
-
-
-            DependencyService.Register<BottomNavBarViewModel>();
-
-
-            if (!KeysModel.HasSubstrateKey())
+        public static Task SetRootPageAsync(Page page)
+        {
+            if (MainThread.IsMainThread)
             {
-                MainPage = new OnboardingShell();
+                UpdateWindowPage(page);
+                return Task.CompletedTask;
             }
-            else
+
+            return MainThread.InvokeOnMainThreadAsync(() => UpdateWindowPage(page));
+        }
+
+        private static void UpdateWindowPage(Page page)
+        {
+            var window = Current?.Windows.FirstOrDefault();
+            if (window is not null)
             {
-                MainPage = new AppShell();
+                window.Page = page;
             }
         }
     }
